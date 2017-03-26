@@ -29,9 +29,10 @@ class StarterKit extends Component {
                 <li><code>Separation</code> between Application and UI-Developer</li>
                 <li>Test Driven Development in mind</li>
                 <li>Webpack + Webpack-Dev-Sever</li>
+                <li><code>Chrome Devtools extensions</code> already preconfigured</li>
                 <li>React <code>Storybook-Ui</code> already in place</li>
                 <li>Eslint configuarion <code>airbnb</code></li>
-                <li>Source-Map</li>
+                <li><code>Source-Map</code> in webpack preconfigured</li>
               </ul>
               <p><small>by Dennis Fleischmann</small></p>
             </Jumbotron>

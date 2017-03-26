@@ -8,6 +8,7 @@ const InputBox = (props) => {
   const {
     inputText,
     onChange,
+    placeholder
   } = props;
 
   return (<form>
@@ -16,6 +17,7 @@ const InputBox = (props) => {
         type="text"
         value={inputText}
         onChange={onChange}
+        placeholder={placeholder}
       />
     </FormGroup>
   </form>);

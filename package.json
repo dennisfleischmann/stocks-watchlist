@@ -8,9 +8,11 @@
   "scripts": {
     "start-watch": "webpack --watch --progress",
     "start-devServer": "webpack-dev-server",
-    "start": "webpack-dev-server && webpack --watch --progress"
+    "start": "webpack-dev-server && webpack --watch --progress",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "devDependencies": {
+    "@kadira/storybook": "^2.35.3",
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
