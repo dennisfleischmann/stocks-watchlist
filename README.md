@@ -18,13 +18,13 @@ cd advanced-react-redux-starter-kit
 
 Install Packages
 
-Yarn use (recommended)
+If using yarn (recommended) run
 
-<code>yarn install</code
+<pre><code>yarn install</code></pre>
 
-npm use
+If using npm run
 
-<code>npm install</code
+<pre><code>npm install</code></pre>
 
 # Usage for UI-Developer, creating, scratching and styling new react components
 
