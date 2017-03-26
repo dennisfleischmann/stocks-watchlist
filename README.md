@@ -4,13 +4,28 @@ Advanced React Redux starter Kit should show an possible solution how Applicatio
 
 # Motivation
 
-Many teams and projects using React and/or Redux are mixing UI and Application logic. I dont think this is a good idea. Since react and finally redux are born, I think we need a new way to approach Ui and Application logic.
+<p>Many teams and projects using React and/or Redux are mixing UI and Application logic. I don't think this is a good idea. Since react and finally redux are born, I think we need a new way to approach Ui and Application logic.</p>
 
-This project should show that it is possible to sepearte the tasks and address the responsibilies appropiately
+<p>This project should show that it is possible to seperate the tasks and address the responsibilies appropiately</p>
+
+# Setup / Installtion
+
+Clone the project:
+
+<pre><code>git clone https://github.com/dennisfleischmann/advanced-react-redux-starter-kit.git
+cd advanced-react-redux-starter-kit
+</code></pre>
+
+<p>Finally, run the development server and open the page:</p>
+
+<pre><code>npm start
+open http://localhost:9000/webpack-dev-server/
+</code></pre>
+
 
 # Example
 
-Working on it...
+In progress...
 
 # License
 

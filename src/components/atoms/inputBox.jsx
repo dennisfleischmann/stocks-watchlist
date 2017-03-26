@@ -22,10 +22,7 @@ const InputBox = (props) => {
 };
 
 InputBox.propTypes = {
-  inputText: PropTypes.string,
   onChange: PropTypes.func.isRequired,
 };
 
 export default InputBox;
-
-

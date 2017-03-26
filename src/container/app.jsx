@@ -5,7 +5,12 @@ import StarterKit from './starterKitContainer';
 import starterKitReducer from '../reducers/startKitReducer';
 import { changeButtonMsg, changeInputText } from '../actions/startKitActions';
 
-const store = createStore(starterKitReducer);
+/* eslint-disable no-underscore-dangle */
+const store = createStore(
+   starterKitReducer, /* preloadedState, */
+   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+ );
+/* eslint-enable */
 
 export default () => (
   <Provider store={store}>
@@ -15,4 +20,3 @@ export default () => (
     />
   </Provider>
 );
-
