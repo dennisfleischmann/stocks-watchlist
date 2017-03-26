@@ -16,6 +16,16 @@ Clone the project:
 cd advanced-react-redux-starter-kit
 </code></pre>
 
+Install Packages
+
+Yarn use (recommended)
+
+<code>yarn install</code
+
+npm use
+
+<code>npm install</code
+
 # Usage for UI-Developer, creating, scratching and styling new react components
 
 <p>UI-Developer use the well known @kadira/storybook-ui to "scratch" and create awesome reusable React Components.
