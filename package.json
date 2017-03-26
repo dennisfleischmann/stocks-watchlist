@@ -1,8 +1,8 @@
 {
-  "name": "advanced-react-redux-starter-kit",
+  "name": "stocks-watchlist",
   "version": "1.0.0",
-  "description": "Advanced React-Redux Starter Kit",
-  "main": "index.js",
+  "description": "Stocks Watchlist",
+  "main": "index.jsx",
   "author": "Dennis Fleischmann",
   "license": "MIT",
   "scripts": {
