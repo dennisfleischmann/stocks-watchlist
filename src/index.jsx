@@ -1,16 +1,6 @@
 
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import {
-  StarterKit,
-} from './components/atoms/index';
+import App from './container/app';
 
-class App extends Component {
-  render() {
-    return <StarterKit />;
-  }
-}
-
-export default App;
-
-render(<App />, window.document.getElementById('app'));
+render(<App />, document.getElementById('app'));
