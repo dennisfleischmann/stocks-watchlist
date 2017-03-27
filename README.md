@@ -2,26 +2,27 @@
 
 <p>By using the advanced React Redux starter kit a stocks watchlist sample app is getting developed. First we focus on the layout. We create React components in @kadirah/storybook which are getting used to create the client application </p>
 
-
-
 ![alt tag](https://github.com/dennisfleischmann/stocks-watchlist/blob/master/img/home.png)
 
 ![alt tag](https://github.com/dennisfleischmann/stocks-watchlist/blob/master/img/create.png)
 
 # Additional Infos
 
-<p>In order to receive usable stocks data the following api is getting used
-</p>
+<p>In order to receive stock data the following free API is getting used:</p>
+
+<code>https://docs.quandl.com/docs/in-depth-usage</code>
+
+# API
 
 <pre>
-  <code> "https://www.quandl.com/api/v3/datasets/WIKI/FB/data.json?api_key=YOURAPIKEY"</code>
+  <code> "https://www.quandl.com/api/v3/datasets/WIKI/{COMPANY-CODE}/data.json?api_key=YOURAPIKEY"</code>
 </pre>
 
 <p>This API will give back the following data</p>
 
 <pre>
   <code>
-    {
+{
   "dataset_data":{
      "limit":null,
      "transform":null,
