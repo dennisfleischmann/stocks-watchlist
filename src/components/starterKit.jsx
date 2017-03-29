@@ -49,8 +49,10 @@ class StarterKit extends Component {
         </Row>
         <Row>
           <Col xs={12} md={12}>
-            <Button onClick={onClick}>Change Text!</Button>
+            <Button onClick={onClick}>Change Text</Button>
           </Col>
+        </Row>
+        <Row>
           <Col xs={12} md={12}>
             <span>{msg}</span>
           </Col>

@@ -14,9 +14,6 @@ const store = createStore(
 
 export default () => (
   <Provider store={store}>
-    <StarterKit
-      onClick={() => store.dispatch(changeButtonMsg(store.getState().inputText))}
-      onChange={event => store.dispatch(changeInputText(event.target.value))}
-    />
+    <StarterKit />
   </Provider>
 );
