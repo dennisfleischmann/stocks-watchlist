@@ -25,6 +25,7 @@ const InputBox = (props) => {
 
 InputBox.propTypes = {
   onChange: PropTypes.func.isRequired,
+  inputText: PropTypes.string.isRequired,
 };
 
 export default InputBox;
