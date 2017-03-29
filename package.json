@@ -6,7 +6,7 @@
   "author": "Dennis Fleischmann",
   "license": "MIT",
   "scripts": {
-    "start": "webpack && webpack-dev-server --watch --progress",
+    "start": "webpack-dev-server --inline --progress",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "devDependencies": {

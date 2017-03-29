@@ -34,7 +34,6 @@ class StarterKit extends Component {
                 <li>Eslint configuarion <code>airbnb</code></li>
                 <li><code>Source-Map</code> in webpack preconfigured</li>
               </ul>
-              <p><small>by Dennis Fleischmann</small></p>
             </Jumbotron>
           </Col>
         </Row>
@@ -66,6 +65,7 @@ StarterKit.propTypes = {
   onClick: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   msg: PropTypes.string.isRequired,
+  inputText: PropTypes.string.isRequired,
 };
 
 export default StarterKit;

@@ -8,7 +8,7 @@ initial state
  */
 
 const initialState = {
-  msg: 'This is my initial message',
+  msg: 'This is my initial message..',
   inputText: '',
 };
 
