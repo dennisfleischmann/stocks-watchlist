@@ -3,7 +3,6 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import StarterKit from './starterKitContainer';
 import starterKitReducer from '../reducers/startKitReducer';
-import { changeButtonMsg, changeInputText } from '../actions/startKitActions';
 
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
