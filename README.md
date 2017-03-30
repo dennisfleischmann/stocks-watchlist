@@ -2,9 +2,9 @@
 
 <p>By using the advanced React Redux starter kit a stocks watchlist sample app is getting developed. First we focus on the layout. We create React components in @kadirah/storybook which are getting used to create the client application </p>
 
-![alt tag](https://github.com/dennisfleischmann/stocks-watchlist/blob/master/img/home.png)
+![alt tag](https://github.com/dennisfleischmann/stocks-watchlist/blob/master/.github/home.png)
 
-![alt tag](https://github.com/dennisfleischmann/stocks-watchlist/blob/master/img/create.png)
+![alt tag](https://github.com/dennisfleischmann/stocks-watchlist/blob/master/.github/create.png)
 
 # Additional Infos
 
@@ -71,3 +71,19 @@
   <li>Reusable Components</li>
   <li>Testable business logic</li>
 </ul>
+
+# Starting the Development
+
+1.) Styling new React components
+
+<p>After finishing the React components development we continue with waking the components to life by adding the business logic.</p>
+
+
+![alt tag](https://github.com/dennisfleischmann/stocks-watchlist/blob/master/.github/screen_1.png)
+
+
+<p>By doing that we will create containers for the new React components and strictely doing it by the Test driven development Apporeach.</p>
+
+2.) Adding the business logic
+
+In Process...
