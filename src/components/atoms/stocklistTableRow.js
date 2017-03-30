@@ -34,7 +34,7 @@ const StockListTableRow = (props) => {
           <Glyphicon glyph="trash" />
         </Button>
       </td>
-    </tr >
+    </tr>
   );
 };
 

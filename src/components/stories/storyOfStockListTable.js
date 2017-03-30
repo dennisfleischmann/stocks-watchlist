@@ -34,7 +34,7 @@ const basicLayoutStockListTable = (
   </StocklistTable>
 );
 
-import StockListModal from '../atoms/stockListModal';
+
 
 const layoutStockListTableWithHeader = (
   <Page>
@@ -43,7 +43,8 @@ const layoutStockListTableWithHeader = (
       <StockListTableHeader
         onAdd={() => alert('adding')} 
         onRefresh={() => alert('fetching lastest data')}
-        Modal={StockListModal}
+        onCloseModal={() => console.log('close Modal')}
+        onAddModal={() => console.log('add Modal')}
       />
       <StocklistTable>
         {
@@ -60,6 +61,7 @@ const layoutStockListTableWithHeader = (
   </Page>
 );
 
+
 const layoutStockListTableWithHeaderAndSidebar = (
   <Page>
     <PageHeader title="Stocklist Wachlist" />
@@ -67,7 +69,8 @@ const layoutStockListTableWithHeaderAndSidebar = (
       <StockListTableHeader
         onAdd={() => alert('adding')} 
         onRefresh={() => alert('fetching lastest data')}
-        Modal={StockListModal}
+        onCloseModal={() => console.log('close Modal')}
+        onAddModal={() => console.log('add Modal')}
       >
       </StockListTableHeader>
       <StocklistTable>

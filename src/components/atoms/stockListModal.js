@@ -12,7 +12,7 @@ class StockListModal extends React.Component {
       children,
       showModal,
       onCloseModal,
-      onAdd,
+      onAddModal,
       inputBox,
     } = this.props;
 
@@ -28,7 +28,7 @@ class StockListModal extends React.Component {
             {inputBox}
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={onAdd}>Add</Button>
+            <Button onClick={onAddModal}>Add</Button>
             <Button onClick={onCloseModal}>Cancel</Button>
           </Modal.Footer>
         </Modal>
@@ -38,11 +38,9 @@ class StockListModal extends React.Component {
 }
 
 StockListModal.propTypes = {
-  children: PropTypes.arrayOf(React).isRequired,
   showModal: PropTypes.bool.isRequired,
   onCloseModal: PropTypes.func.isRequired,
-  onAdd: PropTypes.func.isRequired,
-  inputBox: PropTypes.instanceOf(React).isRequired,
+  onAddModal: PropTypes.func.isRequired,
 };
 
 export default StockListModal;

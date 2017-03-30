@@ -11,9 +11,17 @@ import InputBox from '../atoms/inputBox';
 const ModalShow = (
   <StockListModal
     showModal={true}
-    inputBox={<InputBox />}
+    inputBox=
+    {
+      <InputBox
+        onChange={() => console.log('onChange')}
+        placeholder={'placeholder'}
+        inputText={'inputText'}
+      />
+    }
     onAdd={() => alert('on add')}
     onCloseModal={() => alert('close Modal')}
+    onAddModal={() => alert('add Modal')}
   >
     <Button onClick={() => alert('open Modal')}>Text</Button>
   </StockListModal>
@@ -22,9 +30,17 @@ const ModalShow = (
 const ModalHide = (
   <StockListModal
     showModal={false}
-    inputBox={<InputBox />}
+    inputBox=
+    {
+      <InputBox
+        onChange={() => console.log('onChange')}
+        placeholder={'placeholder'}
+        inputText={'inputText'}
+      />
+    }
     onAdd={() => alert('on add')}
     onCloseModal={() => alert('close Modal')}
+    onAddModal={() => alert('add Modal')}
   >
     <Button onClick={() => alert('open Modal')}>Text</Button>
   </StockListModal>

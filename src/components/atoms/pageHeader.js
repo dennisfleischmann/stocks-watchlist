@@ -17,7 +17,7 @@ const PageHeader = (props) => {
 
   return (
     <Row>
-      <Col xs={12} ms={12}>
+      <Col xs={12} md={12}>
         <ListGroup>
           <ListGroupItem header={title}>{body}</ListGroupItem>
         </ListGroup>

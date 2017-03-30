@@ -7,12 +7,11 @@ import {
 const StockLisTable = (props) => {
 
   const {
-    isResponsive,
     children,
   } = props;
 
   return (
-    <Table responsive={isResponsive || false}>
+    <Table>
       <thead>
         <tr>
           <th>#</th>
@@ -32,7 +31,7 @@ const StockLisTable = (props) => {
 };
 
 StockLisTable.proptypes = {
-  children: PropTypes.arrayOf(React).isRequired,
+  children: React.PropTypes.node.isRequired,
 };
 
 export default StockLisTable;

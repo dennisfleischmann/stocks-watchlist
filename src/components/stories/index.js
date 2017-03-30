@@ -16,35 +16,22 @@ import React Components for styling purposes without
 business/application logic
 */
 
-import StarterKit from '../starterKit';
-import InputBox from '../atoms/inputBox';
-
 import {
   basicLayoutStockListTable,
   layoutStockListTableWithHeader,
   layoutStockListTableWithHeaderAndSidebar,
 } from './storyOfStockListTable';
 
+
 import {
   ModalShow,
   ModalHide,
 } from './storyOfModal';
 
-storiesOf('Inputbox', module)
-  .add('Basic Layout', () => (
-    <InputBox placeholder="Type text in here" />
-  ));
-
-storiesOf('StarterKit Component', module)
-  .add('Basic Layout', () => (
-    <StarterKit />
-  ));
-
 storiesOf('Stocklist Table', module)
   .add('Basic Layout', () => (
     basicLayoutStockListTable
-  ))
-  .add('Layout with Header', () => (
+  )).add('Layout with Header', () => (
     layoutStockListTableWithHeader
   ))
   .add('Layout with Header and Sidebar', () => (
@@ -58,3 +45,4 @@ storiesOf('Modals', module)
   .add('Hide Modal', () => (
     ModalHide
   ));
+

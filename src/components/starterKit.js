@@ -11,6 +11,8 @@ import InputBox from './atoms/inputBox';
 
 class StarterKit extends Component {
   render() {
+
+    console.log("this.props", this.props);
     const {
       onChange,
       onClick,
