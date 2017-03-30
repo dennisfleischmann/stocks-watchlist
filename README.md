@@ -76,7 +76,7 @@
 
 1.) Styling new React components
 
-<p>After finishing the React components development we continue with waking the components to life by adding the business logic.</p>
+<p>After finishing the React components development we continue with awaking the components to life by adding the business logic.</p>
 
 
 ![alt tag](https://github.com/dennisfleischmann/stocks-watchlist/blob/master/.github/screen_1.png)
