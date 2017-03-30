@@ -76,14 +76,14 @@
 
 1.) Styling new React components
 
-<p>After finishing styling the new React components we continue with awaking the components to life starting the app and using them. We will attach the business logic.</p>
+<p>After finishing styling the new React components we continue with our application.</p>
 
 
 ![alt tag](https://github.com/dennisfleischmann/stocks-watchlist/blob/master/.github/screen_1.png)
 
 
-<p>We will create a new React/Redux app, will creat containers and use the just styled React components. We strictley use the well known Test driven development apporeach to make sure we will have a solid code quality and also have a good test coverage in the future.</p>
+<p>We will create a new React/Redux app by using the just styled React components. We will creat containers and strictley use the well known Test driven development approach to make sure we will have a solid code quality and also have a good test coverage in the future.</p>
 
 2.) Adding the business logic
 
-In Process...
+In Progress...
