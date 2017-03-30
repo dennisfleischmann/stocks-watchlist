@@ -14,6 +14,7 @@ class StockListModal extends React.Component {
       onCloseModal,
       onAddModal,
       inputBox,
+      button,
     } = this.props;
 
     return (
@@ -32,6 +33,7 @@ class StockListModal extends React.Component {
             <Button onClick={onCloseModal}>Cancel</Button>
           </Modal.Footer>
         </Modal>
+        {button}
       </div>
     );
   }

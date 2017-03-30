@@ -41,7 +41,7 @@ const layoutStockListTableWithHeader = (
     <PageHeader title="Stocklist Wachlist" />
     <PageContainer>
       <StockListTableHeader
-        onAdd={() => alert('adding')} 
+        onAdd={() => alert('adding')}
         onRefresh={() => alert('fetching lastest data')}
         onCloseModal={() => console.log('close Modal')}
         onAddModal={() => console.log('add Modal')}
@@ -50,7 +50,7 @@ const layoutStockListTableWithHeader = (
         {
           stockListMockData.map((stock, index) =>
             <StocklistTableRow
-              key={index}
+              key={`${index + stock.code}`}
               {...stock}
               index={index}
               onClick={() => alert('deleting stock ' + stock.code)}
@@ -67,7 +67,7 @@ const layoutStockListTableWithHeaderAndSidebar = (
     <PageHeader title="Stocklist Wachlist" />
     <PageContainer sidebar>
       <StockListTableHeader
-        onAdd={() => alert('adding')} 
+        onAdd={() => alert('adding')}
         onRefresh={() => alert('fetching lastest data')}
         onCloseModal={() => console.log('close Modal')}
         onAddModal={() => console.log('add Modal')}
@@ -77,7 +77,7 @@ const layoutStockListTableWithHeaderAndSidebar = (
         {
           stockListMockData.map((stock, index) =>
             <StocklistTableRow
-              key={index}
+              key={`${index + stock.code}`}
               {...stock}
               index={index}
               onClick={() => alert('deleting stock ' + stock.code)}

@@ -7,6 +7,7 @@ import {
   Glyphicon,
 } from 'react-bootstrap';
 
+
 import Modal from '../atoms/stockListModal';
 
 const StockListTableHeader = (props) => {
@@ -28,8 +29,8 @@ const StockListTableHeader = (props) => {
           onAddModal={onAddModal}
         >
           <Button onClick={onAdd}><Glyphicon glyph="plus-sign" /></Button>
+          <Button onClick={onRefresh}><Glyphicon glyph="refresh" /></Button>
         </Modal>
-        <Button onClick={onRefresh}><Glyphicon glyph="refresh" /></Button>
       </Col>
     </Row>
   );
