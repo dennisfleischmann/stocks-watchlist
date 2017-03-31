@@ -38,7 +38,6 @@ class ModalContainer extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log("modal.state.mapStateToProps",state);
   return {
     isOpen: state.modal.isOpen,
   }
