@@ -1,5 +1,5 @@
 
-import { CHANGE_INPUT_TEXT, ADD_STOCK } from './actionTypes';
+import { CHANGE_INPUT_TEXT, ADD_STOCK, REMOVE_STOCK } from './actionTypes';
 
 export const changeInputText = text => {
   return {
@@ -12,5 +12,12 @@ export const addStock = (stock) => {
   return {
     type: ADD_STOCK,
     stock,
+  };
+};
+
+export const removeStock = (index) => {
+  return {
+    type: REMOVE_STOCK,
+    index,
   };
 };

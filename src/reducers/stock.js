@@ -1,4 +1,6 @@
-import { CHANGE_INPUT_TEXT, ADD_STOCK } from '../actions/stock/actionTypes';
+import { CHANGE_INPUT_TEXT, ADD_STOCK, REMOVE_STOCK } from '../actions/stock/actionTypes';
+
+import _ from 'lodash';
 
 const initialState = {
   text: '',
@@ -16,6 +18,13 @@ export default (state = initialState, action) => {
       const newStockListItem = exposeStockData(action.stock);
 
       return Object.assign({}, state, { stocklist: [...list, newStockListItem] })
+    }
+    case REMOVE_STOCK: {
+        const removedList = _.remove(state.stocklist, (stock, index) => {
+          return index === action.index;
+        });
+        const list = Object.assign([], state.stocklist);
+      return Object.assign({}, state, { stocklist: list })
     }
     default:
       return state;

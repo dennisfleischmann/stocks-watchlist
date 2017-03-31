@@ -28,6 +28,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "fetch-readablestream": "^0.1.0",
+    "lodash": "^4.17.4",
     "quandl": "^0.0.6",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.8",

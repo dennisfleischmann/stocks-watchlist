@@ -11,7 +11,7 @@ import {
 } from '../components/atoms';
 
 import { openModal, closeModal } from '../actions/modal/actionCreators';
-import { changeInputText, addStock } from '../actions/stock/actionCreators';
+import { changeInputText, addStock, removeStock } from '../actions/stock/actionCreators';
 import Modal from './modal';
 
 import { fetchStockData } from '../utils/quandlAPI';
@@ -24,6 +24,7 @@ class StockPageContainer extends React.Component {
       text,
       changeInputTextAction,
       addStockAction,
+      removeStockAction,
       stocklist
     } = this.props;
 
@@ -40,6 +41,7 @@ class StockPageContainer extends React.Component {
                 <StocklistTableRow
                   index={index}
                   key={stock.code+index}
+                  onClick={ () =>{console.log("removing"); removeStockAction(index) }}
                   {...stock}
                />)
              }
@@ -75,6 +77,7 @@ const mapDispatchToProps = (dispatch) => {
     closeModalAction: () => dispatch(closeModal()),
     changeInputTextAction: text => dispatch(changeInputText(text)),
     addStockAction: data => dispatch(addStock(data)),
+    removeStockAction: index => dispatch(removeStock(index)),
   };
 };
 
