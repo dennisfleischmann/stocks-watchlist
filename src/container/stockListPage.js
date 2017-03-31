@@ -61,6 +61,7 @@ class StockPageContainer extends React.Component {
           <input
             value={text}
             onChange={event => changeInputTextAction(event.target.value)}
+            placeholder="code z.b. fb for Facebook"
           />
         </Modal>
       </Page>
