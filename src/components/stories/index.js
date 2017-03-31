@@ -23,11 +23,6 @@ import {
 } from './storyOfStockListTable';
 
 
-import {
-  ModalShow,
-  ModalHide,
-} from './storyOfModal';
-
 storiesOf('Stocklist Table', module)
   .add('Basic Layout', () => (
     basicLayoutStockListTable
@@ -37,12 +32,3 @@ storiesOf('Stocklist Table', module)
   .add('Layout with Header and Sidebar', () => (
     layoutStockListTableWithHeaderAndSidebar
   ));
-
-storiesOf('Modals', module)
-  .add('Show Modal', () => (
-    ModalShow
-  ))
-  .add('Hide Modal', () => (
-    ModalHide
-  ));
-

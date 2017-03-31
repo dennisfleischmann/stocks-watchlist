@@ -34,8 +34,6 @@ const basicLayoutStockListTable = (
   </StocklistTable>
 );
 
-
-
 const layoutStockListTableWithHeader = (
   <Page>
     <PageHeader title="Stocklist Wachlist" />

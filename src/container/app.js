@@ -1,18 +1,11 @@
 import React from 'react';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import StarterKit from './starterKitContainer';
-import starterKitReducer from '../reducers/startKitReducer';
+import store from '../store/configureStore';
 
-/* eslint-disable no-underscore-dangle */
-const store = createStore(
-   starterKitReducer, /* preloadedState, */
-   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
- );
-/* eslint-enable */
+import StockListPage from './stockListPage';
 
 export default () => (
   <Provider store={store}>
-    <StarterKit />
+    <StockListPage />
   </Provider>
 );

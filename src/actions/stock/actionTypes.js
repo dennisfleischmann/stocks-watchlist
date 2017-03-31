@@ -1,0 +1,2 @@
+export const CHANGE_INPUT_TEXT = 'CHANGE_INPUT_TEXT';
+export const FETCH_STOCK_DATA = 'FETCH_STOCK_DATA';
