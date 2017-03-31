@@ -82,7 +82,7 @@
 ![alt tag](https://github.com/dennisfleischmann/stocks-watchlist/blob/master/.github/screen_1.png)
 
 
-<p>We will create a new React/Redux app by using the just styled React components. We will creat containers and strictley use the well known Test driven development approach to make sure we will have a solid code quality and also have a good test coverage in the future.</p>
+<p>We will create a new React/Redux app by using the just styled React components</p>
 
 2.) Adding the business logic
 

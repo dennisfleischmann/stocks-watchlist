@@ -18,7 +18,6 @@ const StockListTableHeader = (props) => {
       <Col xs={12} md={10} />
       <Col xs={12} md={2}>
         <Button onClick={onAdd}><Glyphicon glyph="plus-sign" /></Button>
-        <Button onClick={onRefresh}><Glyphicon glyph="refresh" /></Button>
       </Col>
     </Row>
   );

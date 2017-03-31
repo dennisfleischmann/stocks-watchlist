@@ -11,18 +11,19 @@ import {
 } from '../components/atoms';
 
 import { openModal, closeModal } from '../actions/modal/actionCreators';
-import { changeInputText, fetchStockData } from '../actions/stock/actionCreators';
+import { changeInputText, addStock } from '../actions/stock/actionCreators';
 import Modal from './modal';
 
-class StockPageContainer extends React.Component {
+import { fetchStockData } from '../utils/quandlAPI';
 
+class StockPageContainer extends React.Component {
   render() {
     const {
       openModalAction,
       closeModalAction,
       text,
       changeInputTextAction,
-      fetchStockDataAction,
+      addStockAction,
       stocklist
     } = this.props;
 
@@ -45,12 +46,21 @@ class StockPageContainer extends React.Component {
            </StocklistTable>
         </PageContainer>
         <Modal
-          onAdd={() => { fetchStockDataAction(text); closeModalAction(); }}
+          onAdd={() => {
+            fetchStockData({ code: text })
+              .then((respose) => {
+                const data = JSON.parse(respose);
+                data.code = text;
+                addStockAction(data);
+                closeModalAction();
+            });
+          }
+        }
           title={'New Stock to Watchlist'}
         >
           <input
             value={text}
-            onChange={event => changeInputText(event.target.value)}
+            onChange={event => changeInputTextAction(event.target.value)}
           />
         </Modal>
       </Page>
@@ -63,7 +73,7 @@ const mapDispatchToProps = (dispatch) => {
     openModalAction: () => dispatch(openModal()),
     closeModalAction: () => dispatch(closeModal()),
     changeInputTextAction: text => dispatch(changeInputText(text)),
-    fetchStockDataAction: code => dispatch(fetchStockData(code)),
+    addStockAction: data => dispatch(addStock(data)),
   };
 };
 

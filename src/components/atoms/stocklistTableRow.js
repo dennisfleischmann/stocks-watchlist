@@ -20,14 +20,14 @@ const StockListTableRow = (props) => {
   } = props;
 
   return (
-    <tr className={classNames({ danger: trend === 'down', success: trend === 'up' })}>
+    <tr className={classNames({ danger: diff < 0, success: diff > 0  })}>
       <td>{index + 1}</td>
       <td>{code}</td>
       <td>{currency} {price}</td>
       <td>{exchange}</td>
       <td>{diff}</td>
       <td>
-        <Glyphicon glyph={trend === 'up' ? "chevron-up" : 'chevron-down'} />
+        <Glyphicon glyph={diff > 0 ? "chevron-up" : 'chevron-down'} />
       </td>
       <td>
         <Button onClick={onClick}>

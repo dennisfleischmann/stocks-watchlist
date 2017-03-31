@@ -1,4 +1,5 @@
-import { CHANGE_INPUT_TEXT, FETCH_STOCK_DATA } from './actionTypes';
+
+import { CHANGE_INPUT_TEXT, ADD_STOCK } from './actionTypes';
 
 export const changeInputText = text => {
   return {
@@ -7,17 +8,9 @@ export const changeInputText = text => {
   };
 };
 
-export const fetchStockData = (code) => {
-
-const stock =   {
-    code: 'MSDF', price: 64.98, currency: 'USD', exchange: 'NYSE', diff: -1.22, trend: 'down',
-  }
-
-/*
-lets do some fetch data
-*/
+export const addStock = (stock) => {
   return {
-    type: FETCH_STOCK_DATA,
-    stock: stock,
+    type: ADD_STOCK,
+    stock,
   };
 };
