@@ -88,8 +88,6 @@
 
 In Progress...
 
-<pre>
-  <code>
-    https://sample-watchlist.herokuapp.com/
-  </code>
-</pre>
+
+<a href="https://sample-watchlist.herokuapp.com/">Link to the sampel app</a>
+
