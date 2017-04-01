@@ -20,8 +20,7 @@ module.exports = {
   devServer: {
     port: 9000,
     inline: false,
-    publicPath: "/",
-    contentBase: "./public",
+    contentBase: './public',
   },
   devtool: 'source-map',
 };
