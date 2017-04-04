@@ -8,7 +8,7 @@ const InputBox = (props) => {
   const {
     inputText,
     onChange,
-    placeholder
+    placeholder,
   } = props;
 
   return (<form>
@@ -26,6 +26,11 @@ const InputBox = (props) => {
 InputBox.propTypes = {
   onChange: PropTypes.func.isRequired,
   inputText: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+};
+
+InputBox.defaultProps = {
+  placeholder: 'Your placeholder',
 };
 
 export default InputBox;
