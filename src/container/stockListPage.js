@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import {
@@ -25,12 +25,12 @@ class StockPageContainer extends React.Component {
       changeInputTextAction,
       addStockAction,
       removeStockAction,
-      stocklist
+      stocklist,
     } = this.props;
 
     return (
       <Page>
-        <PageHeader title={'Stocks Watchlist - ' + stocklist.length.toString()} />
+        <PageHeader title={`Stocks Watchlist${stocklist.length.toString()}`} />
         <PageContainer>
           <StockListTableHeader
             onAdd={() => openModalAction()}
@@ -40,12 +40,12 @@ class StockPageContainer extends React.Component {
               stocklist.map((stock, index) =>
                 <StocklistTableRow
                   index={index}
-                  key={stock.code+index}
-                  onClick={ () =>{console.log("removing"); removeStockAction(index) }}
+                  key={stock.code + index}
+                  onClick={() => removeStockAction(index)}
                   {...stock}
-               />)
-             }
-           </StocklistTable>
+                />)
+            }
+          </StocklistTable>
         </PageContainer>
         <Modal
           onAdd={() => {
@@ -55,7 +55,7 @@ class StockPageContainer extends React.Component {
                 data.code = text;
                 addStockAction(data);
                 closeModalAction();
-            });
+              });
           }
         }
           title={'New Stock to Watchlist'}
@@ -69,23 +69,33 @@ class StockPageContainer extends React.Component {
       </Page>
     );
   }
+}
+
+StockPageContainer.propTypes = {
+  openModalAction: PropTypes.func.isRequired,
+  closeModalAction: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
+  changeInputTextAction: PropTypes.func.isRequired,
+  addStockAction: PropTypes.func.isRequired,
+  removeStockAction: PropTypes.func.isRequired,
+  stocklist: PropTypes.arry,
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    openModalAction: () => dispatch(openModal()),
-    closeModalAction: () => dispatch(closeModal()),
-    changeInputTextAction: text => dispatch(changeInputText(text)),
-    addStockAction: data => dispatch(addStock(data)),
-    removeStockAction: index => dispatch(removeStock(index)),
-  };
+StockPageContainer.defaultProps = {
+  stocklist: [],
 };
 
-const mapStateToProps = (state) => {
-  return {
-    text: state.stock.text,
-    stocklist: state.stock.stocklist,
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  openModalAction: () => dispatch(openModal()),
+  closeModalAction: () => dispatch(closeModal()),
+  changeInputTextAction: text => dispatch(changeInputText(text)),
+  addStockAction: data => dispatch(addStock(data)),
+  removeStockAction: index => dispatch(removeStock(index)),
+});
+
+const mapStateToProps = state => ({
+  text: state.stock.text,
+  stocklist: state.stock.stocklist,
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(StockPageContainer);
