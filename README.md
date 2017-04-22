@@ -89,5 +89,4 @@
 In Progress...
 
 
-<a href="https://sample-watchlist.herokuapp.com/">Link to the sampel app</a>
-
+<a href="https://sample-watchlist.herokuapp.com/">To the sample Project</a>
