@@ -86,7 +86,4 @@
 
 2.) Adding the business logic
 
-In Progress...
-
-
 <a href="https://sample-watchlist.herokuapp.com/">To the sample Project</a>
