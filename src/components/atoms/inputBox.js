@@ -1,27 +1,34 @@
-import React, { PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   FormGroup,
   FormControl,
   ControlLabel,
 } from 'react-bootstrap';
 
-const InputBox = ({
-    label,
+
+class InputBox extends Component {
+
+  render() {
+    const {
+       label,
     ...otherProps
-}) =>
-  (<form>
-    <FormGroup>
-      {
-        label &&
-        <ControlLabel>{label}</ControlLabel>
-      }
-      <FormControl
-        type="text"
-        {...otherProps}
-      />
-    </FormGroup>
-  </form>
-  );
+    } = this.props;
+
+    return (
+      <FormGroup>
+        {
+          label &&
+          <ControlLabel>{label}</ControlLabel>
+        }
+        <FormControl
+          type="text"
+          {...otherProps}
+        />
+      </FormGroup>
+    );
+  }
+}
 
 InputBox.propTypes = {
   onChange: PropTypes.func.isRequired,

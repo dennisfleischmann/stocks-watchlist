@@ -1,20 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   Grid,
 } from 'react-bootstrap';
 
-const Page = (props) => {
+const Page = ({ children }) => (
+  <Grid>
+    {children}
+  </Grid>
+);
 
-  const {
-    children,
-  } = props;
-
-  return (
-    <Grid>
-      {children}
-    </Grid>
-  );
+Page.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default Page;

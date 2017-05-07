@@ -10,7 +10,7 @@
     "dev": "webpack-dev-server --inline --progress",
     "start": "node server.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "test": "jest"
+    "test": "node ./node_modules/mocha/bin/mocha --compilers js:babel-core/register src/**/*.spec.js"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
@@ -25,16 +25,16 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
-    "jest": "^19.0.2",
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
-    "babel-jest": "^19.0.0",
+    "chai": "^3.5.0",
     "classnames": "^2.2.5",
     "express": "^4.15.2",
     "fetch-readablestream": "^0.1.0",
     "lodash": "^4.17.4",
+    "mocha": "^3.3.0",
     "prop-types": "^15.5.8",
     "quandl": "^0.0.6",
     "react": "^15.4.2",
