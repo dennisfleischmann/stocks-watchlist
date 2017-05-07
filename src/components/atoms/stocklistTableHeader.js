@@ -10,7 +10,6 @@ import {
 const StockListTableHeader = (props) => {
   const {
     onAdd,
-    onRefresh,
   } = props;
 
   return (
@@ -29,7 +28,6 @@ StockListTableHeader.defaultProps = {
 
 StockListTableHeader.propTypes = {
   onAdd: PropTypes.func.isRequired,
-  onRefresh: PropTypes.func.isRequired,
 };
 
 export default StockListTableHeader;

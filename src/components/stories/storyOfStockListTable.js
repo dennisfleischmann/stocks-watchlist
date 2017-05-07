@@ -10,7 +10,7 @@ Then you can look for the correct js/jsx file to find how it can be used
  */
 
 import React from 'react';
-
+import uuidV1 from 'uuid/v1';
 import StocklistTable from '../atoms/stocklistTable';
 import StocklistTableRow from '../atoms/stocklistTableRow';
 import Page from '../atoms/page';
@@ -25,7 +25,7 @@ const basicLayoutStockListTable = (
     {
       stockListMockData.map((stock, index) =>
         <StocklistTableRow
-          key={index}
+          key={uuidV1()}
           {...stock}
           index={index}
           onClick={() => alert('deleting stock ' + stock.code)}
@@ -48,7 +48,7 @@ const layoutStockListTableWithHeader = (
         {
           stockListMockData.map((stock, index) =>
             <StocklistTableRow
-              key={`${index + stock.code}`}
+              key={uuidV1()}
               {...stock}
               index={index}
               onClick={() => alert('deleting stock ' + stock.code)}
@@ -75,7 +75,7 @@ const layoutStockListTableWithHeaderAndSidebar = (
         {
           stockListMockData.map((stock, index) =>
             <StocklistTableRow
-              key={`${index + stock.code}`}
+              key={uuidV1()}
               {...stock}
               index={index}
               onClick={() => alert('deleting stock ' + stock.code)}

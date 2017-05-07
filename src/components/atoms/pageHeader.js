@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   Row,
@@ -7,23 +8,33 @@ import {
   ListGroupItem,
 } from 'react-bootstrap';
 
-const PageHeader = (props) => {
+class PageHeader extends React.Component {
+  render() {
+    const {
+      title,
+      body,
+    } = this.props;
 
-  const {
-    children,
-    title,
-    body,
-  } = props;
+    return (
+      <Row>
+        <Col xs={12} md={12}>
+          <ListGroup>
+            <ListGroupItem header={title}>{body}</ListGroupItem>
+          </ListGroup>
+        </Col>
+      </Row>
+    );
+  }
+}
 
-  return (
-    <Row>
-      <Col xs={12} md={12}>
-        <ListGroup>
-          <ListGroupItem header={title}>{body}</ListGroupItem>
-        </ListGroup>
-      </Col>
-    </Row>
-  );
+PageHeader.propTypes = {
+  title: PropTypes.string,
+  body: PropTypes.string,
+};
+
+PageHeader.defaultProps = {
+  title: '',
+  body: '',
 };
 
 export default PageHeader;

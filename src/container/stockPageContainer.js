@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import uuidV1 from 'uuid/v1';
 
 import {
   Page,
@@ -8,11 +9,13 @@ import {
   StockListTableHeader,
   StocklistTable,
   StocklistTableRow,
+  Button,
+  InputBox,
 } from '../components/atoms';
 
 import { openModal, closeModal } from '../actions/modal/actionCreators';
 import { changeInputText, addStock, removeStock } from '../actions/stock/actionCreators';
-import Modal from './modal';
+import Modal from './modalContainer';
 
 import { fetchStockData } from '../utils/quandlAPI';
 
@@ -27,10 +30,12 @@ class StockPageContainer extends React.Component {
       removeStockAction,
       stocklist,
     } = this.props;
+    
+    const title = `Stocks Watchlist [${stocklist.length}]`;
 
     return (
       <Page>
-        <PageHeader title={`Stocks Watchlist${stocklist.length.toString()}`} />
+        <PageHeader title={title} />
         <PageContainer>
           <StockListTableHeader
             onAdd={() => openModalAction()}
@@ -40,10 +45,12 @@ class StockPageContainer extends React.Component {
               stocklist.map((stock, index) =>
                 <StocklistTableRow
                   index={index}
-                  key={stock.code + index}
-                  onClick={() => removeStockAction(index)}
+                  key={uuidV1()}
                   {...stock}
-                />)
+                >
+                  <Button icon="trash" onClick={() => removeStockAction(index)}></Button>
+                </StocklistTableRow>
+                )
             }
           </StocklistTable>
         </PageContainer>
@@ -60,7 +67,7 @@ class StockPageContainer extends React.Component {
         }
           title={'New Stock to Watchlist'}
         >
-          <input
+          <InputBox
             value={text}
             onChange={event => changeInputTextAction(event.target.value)}
             placeholder="code z.b. fb for Facebook"
@@ -78,7 +85,7 @@ StockPageContainer.propTypes = {
   changeInputTextAction: PropTypes.func.isRequired,
   addStockAction: PropTypes.func.isRequired,
   removeStockAction: PropTypes.func.isRequired,
-  stocklist: PropTypes.arry,
+  stocklist: PropTypes.any,
 };
 
 StockPageContainer.defaultProps = {

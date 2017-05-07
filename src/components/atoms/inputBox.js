@@ -5,19 +5,12 @@ import {
 } from 'react-bootstrap';
 
 const InputBox = (props) => {
-  const {
-    inputText,
-    onChange,
-    placeholder,
-  } = props;
 
   return (<form>
     <FormGroup>
       <FormControl
         type="text"
-        value={inputText}
-        onChange={onChange}
-        placeholder={placeholder}
+        {...props}
       />
     </FormGroup>
   </form>);
@@ -25,7 +18,7 @@ const InputBox = (props) => {
 
 InputBox.propTypes = {
   onChange: PropTypes.func.isRequired,
-  inputText: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
 };
 
