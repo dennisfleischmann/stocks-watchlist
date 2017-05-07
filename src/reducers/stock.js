@@ -4,11 +4,13 @@ import {
   CHANGE_INPUT_TEXT,
   ADD_STOCK,
   REMOVE_STOCK,
+  STOCK_FOUND,
 } from '../actions/stock/actionTypes';
 
 const initialState = {
   text: '',
   stocklist: [],
+  found: true,
 };
 
 export default (state = initialState, action) => {
@@ -26,6 +28,9 @@ export default (state = initialState, action) => {
       _.remove(state.stocklist, (stock, index) => (index === action.index));
       const list = Object.assign([], state.stocklist);
       return Object.assign({}, state, { stocklist: list });
+    }
+    case STOCK_FOUND: {
+      return Object.assign({}, state, { found: action.found });
     }
     default:
       return state;
