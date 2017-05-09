@@ -22,17 +22,17 @@ import { fetchStockData } from '../utils/quandlAPI';
 class StockPageContainer extends Component {
   render() {
     const {
-      openModalAction,
-      closeModalAction,
+      onOpenModal,
+      onCloseModal,
+      onChangeInputText,
+      onAddStock,
+      onRemoveStock,
+      onStockFound,
       text,
-      changeInputTextAction,
-      addStockAction,
-      removeStockAction,
-      stockFoundAction,
       stocklist,
       found,
     } = this.props;
-    
+
     const title = `Stocks Watchlist [${stocklist.length}]`;
     const label = `Code ${!found ? `${text} not found` : ''}`;
 
@@ -41,7 +41,7 @@ class StockPageContainer extends Component {
         <PageHeader title={title} />
         <PageContainer>
           <StockListTableHeader
-            onAdd={() => openModalAction()}
+            onAdd={() => onOpenModal()}
           />
           <StocklistTable>
             {
@@ -51,7 +51,7 @@ class StockPageContainer extends Component {
                   key={uuidV1()}
                   {...stock}
                 >
-                  <Button icon="trash" onClick={() => removeStockAction(index)}></Button>
+                  <Button icon="trash" onClick={() => onRemoveStock(index)}></Button>
                 </StocklistTableRow>
                 )
             }
@@ -63,11 +63,11 @@ class StockPageContainer extends Component {
               .then((respose) => {
                 const data = JSON.parse(respose);
                 if (!data.quandl_error) {
-                  addStockAction(data);
-                  closeModalAction();
-                  changeInputTextAction('');
+                  onAddStock(data);
+                  onCloseModal();
+                  onChangeInputText('');
                 } else {
-                  stockFoundAction(false);
+                  onStockFound(false);
                 }
               });
           }
@@ -78,8 +78,8 @@ class StockPageContainer extends Component {
             label={label}
             value={text}
             onChange={(event) => {
-              !found && stockFoundAction(true);
-              changeInputTextAction(event.target.value);
+              !found && onStockFound(true);
+              onChangeInputText(event.target.value);
               }
             }
             placeholder="code"
@@ -96,14 +96,14 @@ class StockPageContainer extends Component {
 }
 
 StockPageContainer.propTypes = {
-  openModalAction: PropTypes.func.isRequired,
-  closeModalAction: PropTypes.func.isRequired,
+  onOpenModal: PropTypes.func.isRequired,
+  onCloseModal: PropTypes.func.isRequired,
+  onChangeInputText: PropTypes.func.isRequired,
+  onAddStock: PropTypes.func.isRequired,
+  onRemoveStock: PropTypes.func.isRequired,
+  onStockFound: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
   found: PropTypes.bool.isRequired,
-  changeInputTextAction: PropTypes.func.isRequired,
-  addStockAction: PropTypes.func.isRequired,
-  removeStockAction: PropTypes.func.isRequired,
-  stockFoundAction: PropTypes.func.isRequired,
   stocklist: PropTypes.any,
 };
 
@@ -111,19 +111,17 @@ StockPageContainer.defaultProps = {
   stocklist: [],
 };
 
-const mapDispatchToProps = dispatch => ({
-  openModalAction: () => dispatch(openModal()),
-  closeModalAction: () => dispatch(closeModal()),
-  changeInputTextAction: text => dispatch(changeInputText(text)),
-  addStockAction: data => dispatch(addStock(data)),
-  removeStockAction: index => dispatch(removeStock(index)),
-  stockFoundAction: isValid => dispatch(stockFound(isValid)),
-});
-
 const mapStateToProps = state => ({
   text: state.stock.text,
   found: state.stock.found,
   stocklist: state.stock.stocklist,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(StockPageContainer);
+export default connect(mapStateToProps, {
+  onOpenModal: openModal,
+  onCloseModal: closeModal,
+  onChangeInputText: changeInputText,
+  onAddStock: addStock,
+  onRemoveStock: removeStock,
+  onStockFound: stockFound,
+})(StockPageContainer);

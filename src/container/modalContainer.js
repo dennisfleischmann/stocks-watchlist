@@ -11,17 +11,16 @@ import { openModal, closeModal } from '../actions/modal/actionCreators';
 
 class ModalContainer extends Component {
   render() {
-
     const {
       title,
       children,
       isOpen,
-      closeModalAction,
+      onCloseModal,
       onAdd,
     } = this.props;
 
     return (
-      <Modal show={isOpen} onHide={() => closeModalAction()}>
+      <Modal show={isOpen} onHide={() => onCloseModal()}>
         <Modal.Header closeButton>
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
@@ -30,7 +29,7 @@ class ModalContainer extends Component {
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={onAdd}>Add</Button>
-          <Button onClick={() => closeModalAction()}>Cancel</Button>
+          <Button onClick={() => onCloseModal()}>Cancel</Button>
         </Modal.Footer>
       </Modal>
     );
@@ -41,7 +40,7 @@ ModalContainer.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   isOpen: PropTypes.bool,
-  closeModalAction: PropTypes.func.isRequired,
+  onCloseModal: PropTypes.func.isRequired,
   onAdd: PropTypes.func.isRequired,
 };
 
@@ -53,9 +52,7 @@ const mapStateToProps = state => ({
   isOpen: state.modal.isOpen,
 });
 
-const mapDispatchToProps = dispatch => ({
-  openModalAction: () => dispatch(openModal()),
-  closeModalAction: () => dispatch(closeModal()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ModalContainer);
+export default connect(mapStateToProps, {
+  onOpenModal: openModal,
+  onCloseModal: closeModal,
+})(ModalContainer);
