@@ -29,10 +29,12 @@
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
+    "axios": "^0.16.1",
     "chai": "^3.5.0",
     "classnames": "^2.2.5",
     "express": "^4.15.2",
     "fetch-readablestream": "^0.1.0",
+    "graphql": "^0.9.6",
     "lodash": "^4.17.4",
     "mocha": "^3.3.0",
     "prop-types": "^15.5.8",

@@ -7,24 +7,25 @@ import {
 
 const StockListTableRow = (props) => {
   const {
-    code,
-    price,
-    currency,
-    exchange,
-    diff,
     index,
+    Symbol,
+    CompanyName,
+    Currency,
+    Diff,
+    Price,
+    Exchange,
     children,
   } = props;
 
   return (
-    <tr className={classNames({ danger: diff < 0, success: diff > 0 })}>
+    <tr className={classNames({ danger: Diff < 0, success: Diff > 0 })}>
       <td>{index + 1}</td>
-      <td>{code}</td>
-      <td>{currency} {price}</td>
-      <td>{exchange}</td>
-      <td>{diff}</td>
+      <td>{Symbol}-{CompanyName}</td>
+      <td>{Currency} {Price}</td>
+      <td>{Exchange}</td>
+      <td>{Diff}</td>
       <td>
-        <Glyphicon glyph={diff > 0 ? 'chevron-up' : 'chevron-down'} />
+        <Glyphicon glyph={Diff > 0 ? 'chevron-up' : 'chevron-down'} />
       </td>
       <td>
         {children}
@@ -34,21 +35,23 @@ const StockListTableRow = (props) => {
 };
 
 StockListTableRow.propTypes = {
-  code: PropTypes.string,
-  price: PropTypes.number,
-  currency: PropTypes.string,
-  exchange: PropTypes.string,
-  diff: PropTypes.string,
+  Symbol: PropTypes.string,
+  Price: PropTypes.number,
+  Currency: PropTypes.string,
+  Exchange: PropTypes.string,
+  Diff: PropTypes.number,
+  CompanyName: PropTypes.string,
   index: PropTypes.number,
   children: PropTypes.node,
 };
 
 StockListTableRow.defaultProps = {
-  code: '',
-  price: 0,
-  currency: '',
-  exchange: '',
-  diff: '',
+  CompanyName: '?',
+  Symbol: '?',
+  Price: 0,
+  Currency: '',
+  Exchange: '?',
+  Diff: 0,
   index: 0,
   children: null,
 };

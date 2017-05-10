@@ -14,13 +14,14 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+  console.log('action=======>', action);
   switch (action.type) {
     case CHANGE_INPUT_TEXT: {
       return Object.assign({}, state, { text: action.text });
     }
     case ADD_STOCK: {
       const list = Object.assign([], state.stocklist);
-      const newStockListItem = exposeStockData(action.stock);
+      const newStockListItem = action.stock;
 
       return Object.assign({}, state, { stocklist: [...list, newStockListItem] });
     }

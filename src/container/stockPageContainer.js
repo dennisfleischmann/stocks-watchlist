@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import uuidV1 from 'uuid/v1';
+
+import graphQL from '../utils/graphql';
 
 import {
   Page,
@@ -17,24 +20,22 @@ import {
 import { openModal, closeModal } from '../actions/modal/actionCreators';
 import { changeInputText, addStock, removeStock, stockFound } from '../actions/stock/actionCreators';
 import Modal from './modalContainer';
-import { fetchStockData } from '../utils/quandlAPI';
 
 class StockPageContainer extends Component {
   render() {
-    const {
-      onOpenModal,
-      onCloseModal,
-      onChangeInputText,
-      onAddStock,
-      onRemoveStock,
-      onStockFound,
-      text,
-      stocklist,
-      found,
-    } = this.props;
-
-    const title = `Stocks Watchlist [${stocklist.length}]`;
-    const label = `Code ${!found ? `${text} not found` : ''}`;
+      const {
+        onOpenModal,
+        onCloseModal,
+        onChangeInputText,
+        onAddStock,
+        onRemoveStock,
+        onStockFound,
+        text,
+        stocklist,
+        found,
+      } = this.props;
+      const title = `Stocks Watchlist [${stocklist.length}]`;
+      const label = `Code ${!found ? `${text} not found` : ''}`;
 
     return (
       <Page>
@@ -59,17 +60,16 @@ class StockPageContainer extends Component {
         </PageContainer>
         <Modal
           onAdd={() => {
-            fetchStockData({ code: text })
-              .then((respose) => {
-                const data = JSON.parse(respose);
-                if (!data.quandl_error) {
-                  onAddStock(data);
-                  onCloseModal();
-                  onChangeInputText('');
-                } else {
-                  onStockFound(false);
-                }
-              });
+            graphQL({ code: text }).then((response) => {
+              const stockReponse = response.data.stock;
+              if (stockReponse) {
+                onCloseModal();
+                onAddStock(stockReponse);
+                onChangeInputText('');
+              } else {
+                onStockFound(false);
+              }
+            });
           }
         }
           title={'New Stock to Watchlist'}
@@ -117,11 +117,15 @@ const mapStateToProps = state => ({
   stocklist: state.stock.stocklist,
 });
 
-export default connect(mapStateToProps, {
-  onOpenModal: openModal,
-  onCloseModal: closeModal,
-  onChangeInputText: changeInputText,
-  onAddStock: addStock,
-  onRemoveStock: removeStock,
-  onStockFound: stockFound,
-})(StockPageContainer);
+function mapDispatchToProps(dispatch) {
+  return {
+    onOpenModal: bindActionCreators(openModal, dispatch),
+    onCloseModal: bindActionCreators(closeModal, dispatch),
+    onChangeInputText: bindActionCreators(changeInputText, dispatch),
+    onAddStock: bindActionCreators(addStock, dispatch),
+    onRemoveStock: bindActionCreators(removeStock, dispatch),
+    onStockFound: bindActionCreators(stockFound, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(StockPageContainer);
