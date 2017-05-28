@@ -10,7 +10,7 @@
     "dev": "webpack-dev-server --inline --progress",
     "start": "node server.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "test": "node ./node_modules/mocha/bin/mocha --watch --compilers js:babel-core/register src/**/*.spec.js"
+    "test": "node ./node_modules/mocha/bin/mocha --compilers js:babel-core/register src/**/**/*.spec.js && node ./node_modules/mocha/bin/mocha --compilers js:babel-core/register src/**/*.spec.js --watch"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",

@@ -12,7 +12,7 @@ describe('stock reducer', () => {
     state = {
       text: '',
       stocklist: [],
-      found: true,
+      found: false,
     };
     facebookStock = {
       code: 'fb',
@@ -30,7 +30,6 @@ describe('stock reducer', () => {
 
   it('should return initital state', () => {
     const initalState = stockReducer();
-    console.log('initialState', initalState);
     expect(initalState).to.deep.equal({
       text: '',
       stocklist: [],

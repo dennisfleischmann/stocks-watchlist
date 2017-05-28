@@ -2,3 +2,5 @@ node_modules
 *.log
 dist
 .DS_Store
+public/bundle.js
+public/bundle.map.js

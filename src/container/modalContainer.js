@@ -17,6 +17,7 @@ class ModalContainer extends Component {
       isOpen,
       onCloseModal,
       onAdd,
+      isLoading
     } = this.props;
 
     return (
@@ -28,7 +29,13 @@ class ModalContainer extends Component {
           {children}
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={onAdd}>Add</Button>
+          <Button onClick={onAdd}>
+            {
+              isLoading ?
+                <img src="img/ring-alt.svg" height="15" alt="loader" /> :
+              'ADD'
+            }
+          </Button>
           <Button onClick={() => onCloseModal()}>Cancel</Button>
         </Modal.Footer>
       </Modal>
@@ -50,6 +57,7 @@ ModalContainer.defaultProps = {
 
 const mapStateToProps = state => ({
   isOpen: state.modal.isOpen,
+  isLoading: state.modal.isLoading,
 });
 
 export default connect(mapStateToProps, {
