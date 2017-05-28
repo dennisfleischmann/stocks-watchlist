@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { exposeStockData } from '../utils/mapper';
+// import { exposeStockData } from '../utils/mapper';
 import {
   CHANGE_INPUT_TEXT,
   ADD_STOCK,
@@ -13,8 +13,7 @@ const initialState = {
   found: true,
 };
 
-export default (state = initialState, action) => {
-  console.log('action=======>', action);
+export default (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_INPUT_TEXT: {
       return Object.assign({}, state, { text: action.text });
