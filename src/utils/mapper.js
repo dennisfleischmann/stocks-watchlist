@@ -1,4 +1,10 @@
 
+/**
+* transform utf8 array to string
+* @method exposeStockData
+* @param {object} stock to map into frontend domain
+* @return {object} mapped objec
+*/
 const exposeStockData = stock => ({
   code: stock.code,
   price: stock.dataset_data.data[0][4],
