@@ -64,11 +64,12 @@ class StockPageContainer extends Component {
         <Modal
           onAdd={() => {
             onLoading(true);
-            graphQL({ code: text }).then((response) => {
-              const stockReponse = response.data.stock;
-              if (stockReponse) {
+            graphQL({ code: text }).then(({ data }) => {
+              const { stock } = data;
+
+              if (stock) {
                 onCloseModal();
-                onAddStock(stockReponse);
+                onAddStock(stock);
                 onChangeInputText('');
               } else {
                 onStockFound(false);
@@ -113,6 +114,7 @@ StockPageContainer.propTypes = {
   onAddStock: PropTypes.func.isRequired,
   onRemoveStock: PropTypes.func.isRequired,
   onStockFound: PropTypes.func.isRequired,
+  onLoading: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
   found: PropTypes.bool.isRequired,
   stocklist: PropTypes.arrayOf(PropTypes.object),
